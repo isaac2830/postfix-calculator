@@ -5,7 +5,7 @@
 #include <FL/Fl_Button.H>
 
 int main(int argc, char *argv[]){
-  Display();
+  Screen();
   //done with widgets
 
   	window -> end();
