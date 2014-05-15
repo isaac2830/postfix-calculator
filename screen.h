@@ -1,7 +1,7 @@
 #include <iostream>
 
-#ifndef DISPLAY
-#define DISPLAY
+#ifndef SCREEN
+#define SCREEN
 
 class Interface{
 
