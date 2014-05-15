@@ -13,7 +13,7 @@ LDFLAGS  =
 LDSTATIC =
 
 
-OBJS = display.o
+OBJS = screen.o
 
 all:	calculator
 
