@@ -3,9 +3,8 @@
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
 
-Display:Display(){
+Screen:Screen(){
 
-Fl_Window *window = new Fl_Window(425,475);
   	Fl_Box *output = new Fl_Box(25,25,375,50, "");
   	output -> box(FL_BORDER_BOX);
 	output -> labelsize(25);
