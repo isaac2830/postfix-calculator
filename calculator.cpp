@@ -5,10 +5,11 @@
 #include <FL/Fl_Button.H>
 
 int main(int argc, char *argv[]){
-  Display();
-  //done with widgets
+ Fl_Window *window = new Fl_Window(425,475);
+ Screen();
+  
 
-  	window -> end();
-  	window -> show(argc, argv);
-  	return Fl::run();
+  window -> end();
+  window -> show(argc, argv);
+  return Fl::run();
 }
