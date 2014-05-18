@@ -1,12 +1,13 @@
 #include <iostream>
 
-#ifndef DISPLAY
-#define DISPLAY
+#ifndef SCREEN
+#define SCREEN
 
-class Interface{
+class Screen{
 
 	public:
-	Display();
+	Screen();
+	
 
 };
 #endif
