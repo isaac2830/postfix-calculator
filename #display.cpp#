@@ -3,7 +3,8 @@
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
 
-Screen:Screen(){
+Display:Display(){
+
 
   	Fl_Box *output = new Fl_Box(25,25,375,50, "");
   	output -> box(FL_BORDER_BOX);

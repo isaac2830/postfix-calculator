@@ -1,0 +1,26 @@
+#include <iostream>
+#include <FL/Fl_Output.H>
+#include <string.h>
+#include <stdlib.h>
+#include "stack.h"
+
+#ifndef SCREEN
+#define SCREEN
+
+class Screen: public Fl_Output{
+
+	private:
+		bool decimal;
+		int numDecimal;
+		bool more;
+		float top = 0;
+		Stack myStack;
+
+	public:
+		tScreen(int x, int y, int w, int h, char * label);
+		void entry(int);
+		void entry(char);
+	
+
+};
+#endif
