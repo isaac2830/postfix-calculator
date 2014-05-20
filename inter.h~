@@ -1,6 +1,5 @@
 #include <iostream>
 #include <FL/Fl_Output.H>
-#include <string.h>
 #include <stdlib.h>
 #include "stack.h"
 
@@ -13,11 +12,11 @@ class Inter: public Fl_Output{
 		bool decimal;
 		int numDecimal;
 		bool more;
-		float top = 0;
+		long double topE = 0;
 		Stack myStack;
 
 	public:
-		tScreen(int x, int y, int w, int h, char * label);
+		Inter(int x, int y, int w, int h, char * label);
 		void entry(int);
 		void entry(char);
 	

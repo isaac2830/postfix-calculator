@@ -9,7 +9,7 @@
 class Stack {
  	private:
   		int length;
-		std::vector<float> myStack;
+		std::vector<long double> myStack;
 
  	public:
   		Stack();

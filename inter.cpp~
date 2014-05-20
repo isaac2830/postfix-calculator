@@ -1,12 +1,13 @@
 #include "inter.h"
 #include <iostream>
+#include <stdlib.h>
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
 
-Inter::tScreen(int x,int y,int w,int h,char *label):Fl_Output(x,y,w,h,label){
-  	this -> top=0;
+Inter::Inter(int x,int y,int w,int h,char *label):Fl_Output(x,y,w,h,label){
+  	this -> topE=0;
 	this -> numDecimal =1;
 	this -> value("");
 	this -> more = false;
@@ -15,7 +16,107 @@ Inter::tScreen(int x,int y,int w,int h,char *label):Fl_Output(x,y,w,h,label){
 
 void Inter::entry(int number){
 	this->more=true;
-    	this->top=this->top*10;
-    	this->top=this->top+x;
-   	this->value(std::to_string(this->top).c_str());
+    	this->topE=this->topE*10;
+    	this->topE=this->topE+number;
+   	this->value(std::to_string(this->topE).c_str());
 }
+
+void Inter::entry(char op){
+	if(op == '='){
+		this -> more=false;
+		this -> value("");
+		myStack.push(this->topE);
+		this -> topE = 0;
+		this -> decimal = false;
+		this -> numDecimal = 1;
+	}
+
+	if(op == '+'){
+		if(this -> more){
+			myStack.push(this->topE);
+      			this->topE=0;
+      			this->more=false;
+    		}
+    		long double currentVal=0;
+    
+    		if (myStack.size()>0){
+      			currentVal=myStack.pop();
+    		}
+    		if (myStack.size()>0){
+      			currentVal+=myStack.pop();
+    		}
+    		myStack.push(currentVal);
+    		this->value(std::to_string(currentVal).c_str());
+  	
+	}
+
+	if(op == '-'){
+		if(this -> more){
+			myStack.push(this->topE);
+      			this->topE=0;
+      			this->more=false;
+    		}
+    		long double currentVal=0;
+    
+    		if (myStack.size()>0){
+      			currentVal=myStack.pop();
+    		}
+    		if (myStack.size()>0){
+      			currentVal-=myStack.pop();
+    		}
+		currentVal= currentVal*-1;
+    		myStack.push(currentVal);
+    		this->value(std::to_string(currentVal).c_str());
+
+	}
+
+	if(op == 'c'){
+		myStack.clear();
+		this->value(std::to_string("").c_string());
+	}
+
+	if(op == '*'){
+		if(this -> more){
+			myStack.push(this->topE);
+      			this->topE=0;
+      			this->more=false;
+    		}
+    		long double currentVal=0;
+    
+    		if (myStack.size()>0){
+      			currentVal=myStack.pop();
+    		}
+    		if (myStack.size()>0){
+      			currentVal*=myStack.pop();
+    		}
+    		myStack.push(currentVal);
+    		this->value(std::to_string(currentVal).c_str());
+	}
+
+	if(op == '/'){
+		if(this -> more){
+			myStack.push(this->topE);
+      			this->topE=0;
+      			this->more=false;
+    		}
+		long double answer=0;
+    		long double numerator=0;
+		long double denominator=0;
+    
+    		if (myStack.size()>0){
+      			denominator=myStack.pop();
+    		}
+    		if (myStack.size()>0){
+      			numerator=myStack.pop();
+    		}
+		answer = numerator/denominator;
+    		myStack.push(answer);
+    		this->value(std::to_string(answer).c_str());
+	}
+
+	if(op == 'P'){
+		this->topE = topE * -1;
+		this->value(std::to_string(topE).c_str());
+	}
+}
+
