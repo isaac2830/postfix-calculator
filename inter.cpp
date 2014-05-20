@@ -16,17 +16,22 @@ Inter::Inter(int x,int y,int w,int h,char *label):Fl_Output(x,y,w,h,label){
 }
 
 void Inter::entry(float number){
-	if(!decimal){
+}
+
+void Inter::entry(int number){
+	if(not decimal){
 		this->more=true;
-    		this->topE=this->topE*10;
-    		this->topE=this->topE+number;
+    	this->topE=this->topE*10;
+    	this->topE=this->topE+number;
    		this->value(std::to_string(this->topE).c_str());
    	}
    	else{
-   		long double temp;
-   		float divisor = pow(10,numDecimal);
-   		temp = (float) number/(divisor);
+   		float temp;
+   		int divisor = pow(10,numDecimal);
+   		temp = float(number)/(divisor);
+   		std::cout<<temp<<"/"<<divisor<<"="<<temp<<std::endl;
    		this->topE+=(temp);
+   		std::cout<<this->topE<<std::endl;
    		this->numDecimal++;
    		this->value(std::to_string(this->topE).c_str());
    	}
@@ -41,6 +46,10 @@ void Inter::entry(char op){
 		this -> decimal = false;
 		this -> numDecimal = 1;
 	}
+	
+	if(op == '.'){
+	this->decimal = true;
+   }
 
 	if(op == '+'){
 		if(this -> more){
@@ -175,8 +184,5 @@ void Inter::entry(char op){
     		currentVal=0;
     		this->value("");
 	}
-	if(op == '.'){
-	this->decimal = true;
-   }
 }
 

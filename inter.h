@@ -12,12 +12,13 @@ class Inter: public Fl_Output{
 		bool decimal;
 		int numDecimal;
 		bool more;
-		long double topE = 0;
+		float topE = 0;;
 		Stack myStack;
 
 	public:
 		Inter(int x, int y, int w, int h, char * label);
 		void entry(float);
+		void entry(int);
 		void entry(char);
 	
 

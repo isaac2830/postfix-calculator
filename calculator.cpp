@@ -7,10 +7,12 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Output.H>
+#include "inter.h"
+#include "stack.h"
 
 
-#include "inter.cpp"
-#include "stack.cpp"
+//#include "inter.cpp"
+//#include "stack.cpp"
 
 
 using namespace std;
@@ -18,34 +20,34 @@ using namespace std;
 Inter *myS;
 
 void zero_cb(Fl_Widget *me, void * something){
-  myS->entry(float(0));
+  myS->entry(int(0));
 }
 void one_cb(Fl_Widget *me, void * something){
-  myS->entry(float(1));
+  myS->entry(int(1));
 }
 void two_cb(Fl_Widget *me, void * something){
-  myS->entry(float(2));
+  myS->entry(int(2));
 }
 void three_cb(Fl_Widget *me, void * something){
-  myS->entry(float(3));
+  myS->entry(int(3));
 }
 void four_cb(Fl_Widget *me, void * something){
-  myS->entry(float(4));
+  myS->entry(int(4));
 }
 void five_cb(Fl_Widget *me, void * something){
-  myS->entry(float(5));
+  myS->entry(int(5));
 }
 void six_cb(Fl_Widget *me, void * something){
-  myS->entry(float(6));
+  myS->entry(int(6));
 }
 void seven_cb(Fl_Widget *me, void * something){
-  myS->entry(float(7));
+  myS->entry(int(7));
 }
 void eight_cb(Fl_Widget *me, void * something){
-  myS->entry(float(8));
+  myS->entry(int(8));
 }
 void nine_cb(Fl_Widget *me, void * something){
-  myS->entry(float(9));
+  myS->entry(int(9));
 }
 
 //-------------------------------------------------------
@@ -80,12 +82,12 @@ void sqrt_cb(Fl_Widget *me, void *something){
 void drop_cb(Fl_Widget *me, void *something){
   myS->entry('d');
 }
-void decimal_cb(Fl_Widget *me, void *something){
+/*void decimal_cb(Fl_Widget *me, void *something){
   myS->entry('.');
-}
+}*/
 //--------------------------------------------------------
 int main(int argc, char *argv[]){
-  Fl_Window *window = new Fl_Window(425,525);
+  Fl_Window *window = new Fl_Window(425,475);
   myS = new Inter(25,25,375,50,"");
   
   Fl_Button *zero = new Fl_Button(125,325,75,50,"0");
@@ -115,7 +117,7 @@ int main(int argc, char *argv[]){
   sub->labelsize(30);
   Fl_Button *multi = new Fl_Button(325,250,75,50,"*");
   multi->labelsize(30);
-  Fl_Button *power = new Fl_Button(325,400,75,50,"^");
+  Fl_Button *power = new Fl_Button(225,325,75,50,"^");
   power->labelsize(25);
   Fl_Button *sqrt = new Fl_Button(225,400,75,50,"SQRT");
   sqrt->labelsize(20);
@@ -125,10 +127,10 @@ int main(int argc, char *argv[]){
   plmn->labelsize(25);
   Fl_Button *drop = new Fl_Button(125,400,75,50,"DEL");
   drop->labelsize(25);
-  Fl_Button *decimal = new Fl_Button(225,325,75,50,".");
-  decimal->labelsize(30);
-  Fl_Button *enter = new Fl_Button(75,464,275,50,"ENTER");
-  enter->labelsize(30);
+  //Fl_Button *decimal = new Fl_Button(225,325,75,50,".");
+  //decimal->labelsize(30);
+  Fl_Button *enter = new Fl_Button(325,400,75,50,"ENTER");
+  enter->labelsize(20);
   Fl_Button *clear = new Fl_Button(25,400,75,50,"C");
   clear->labelsize(25);
   //done with widgets
@@ -152,7 +154,7 @@ int main(int argc, char *argv[]){
   div -> callback(div_cb,0);
   plmn -> callback(plmn_cb,0);
   drop -> callback(drop_cb,0);
-  decimal -> callback(decimal_cb,0);
+  //decimal -> callback(decimal_cb,0);
   enter -> callback(enter_cb,0);
   clear -> callback(clear_cb,0);
   
