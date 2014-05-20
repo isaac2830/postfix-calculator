@@ -13,14 +13,14 @@ LDFLAGS  =
 LDSTATIC =
 
 
-OBJS = screen.o
+OBJS = inter.o stack.o
 
 all:	calculator
 
 %.o:	%.cpp %.h
 	$(CPP) $(CPPFLAGS) -c $<
 
-yahtzee:	$(OBJS) calculator.cpp
+calculator:	$(OBJS) calculator.cpp
 	$(LINK) $(CPPFLAGS) calculator.cpp $(LDFLAGS) $(OBJS) -o calculator
 
 clean:
