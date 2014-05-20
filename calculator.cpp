@@ -18,34 +18,34 @@ using namespace std;
 Inter *myS;
 
 void zero_cb(Fl_Widget *me, void * something){
-  myS->entry(int(0));
+  myS->entry(float(0));
 }
 void one_cb(Fl_Widget *me, void * something){
-  myS->entry(int(1));
+  myS->entry(float(1));
 }
 void two_cb(Fl_Widget *me, void * something){
-  myS->entry(int(2));
+  myS->entry(float(2));
 }
 void three_cb(Fl_Widget *me, void * something){
-  myS->entry(int(3));
+  myS->entry(float(3));
 }
 void four_cb(Fl_Widget *me, void * something){
-  myS->entry(int(4));
+  myS->entry(float(4));
 }
 void five_cb(Fl_Widget *me, void * something){
-  myS->entry(int(5));
+  myS->entry(float(5));
 }
 void six_cb(Fl_Widget *me, void * something){
-  myS->entry(int(6));
+  myS->entry(float(6));
 }
 void seven_cb(Fl_Widget *me, void * something){
-  myS->entry(int(7));
+  myS->entry(float(7));
 }
 void eight_cb(Fl_Widget *me, void * something){
-  myS->entry(int(8));
+  myS->entry(float(8));
 }
 void nine_cb(Fl_Widget *me, void * something){
-  myS->entry(int(9));
+  myS->entry(float(9));
 }
 
 //-------------------------------------------------------
@@ -70,6 +70,18 @@ void div_cb(Fl_Widget *me, void * something){
 }
 void plmn_cb(Fl_Widget *me, void *something){
   myS->entry('P');
+}
+void power_cb(Fl_Widget *me, void *something){
+  myS->entry('^');
+}
+void sqrt_cb(Fl_Widget *me, void *something){
+  myS->entry('s');
+}
+void drop_cb(Fl_Widget *me, void *something){
+  myS->entry('d');
+}
+void decimal_cb(Fl_Widget *me, void *something){
+  myS->entry('.');
 }
 //--------------------------------------------------------
 int main(int argc, char *argv[]){
@@ -135,12 +147,12 @@ int main(int argc, char *argv[]){
   add -> callback(add_cb,0);
   sub -> callback(sub_cb,0);
   multi -> callback(multi_cb,0);
-  //power -> callback(power_cb,0);
-  //sqrt -> callback(sqrt_cb,0);
+  power -> callback(power_cb,0);
+  sqrt -> callback(sqrt_cb,0);
   div -> callback(div_cb,0);
   plmn -> callback(plmn_cb,0);
-  //drop -> callback(drop_cb,0);
-  //decimal -> callback(decimal_cb,0);
+  drop -> callback(drop_cb,0);
+  decimal -> callback(decimal_cb,0);
   enter -> callback(enter_cb,0);
   clear -> callback(clear_cb,0);
   

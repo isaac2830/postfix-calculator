@@ -17,7 +17,7 @@ class Inter: public Fl_Output{
 
 	public:
 		Inter(int x, int y, int w, int h, char * label);
-		void entry(int);
+		void entry(float);
 		void entry(char);
 	
 
