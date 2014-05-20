@@ -1,0 +1,176 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Box.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Input.H>
+#include <FL/Fl_Output.H>
+#include "inter.h"
+#include "stack.h"
+
+
+//#include "inter.cpp"
+//#include "stack.cpp"
+
+
+using namespace std;
+
+Inter *myS;
+
+void zero_cb(Fl_Widget *me, void * something){
+  myS->entry(int(0));
+}
+void one_cb(Fl_Widget *me, void * something){
+  myS->entry(int(1));
+}
+void two_cb(Fl_Widget *me, void * something){
+  myS->entry(int(2));
+}
+void three_cb(Fl_Widget *me, void * something){
+  myS->entry(int(3));
+}
+void four_cb(Fl_Widget *me, void * something){
+  myS->entry(int(4));
+}
+void five_cb(Fl_Widget *me, void * something){
+  myS->entry(int(5));
+}
+void six_cb(Fl_Widget *me, void * something){
+  myS->entry(int(6));
+}
+void seven_cb(Fl_Widget *me, void * something){
+  myS->entry(int(7));
+}
+void eight_cb(Fl_Widget *me, void * something){
+  myS->entry(int(8));
+}
+void nine_cb(Fl_Widget *me, void * something){
+  myS->entry(int(9));
+}
+
+//-------------------------------------------------------
+
+void add_cb(Fl_Widget *me, void * something){
+  myS->entry('+');
+}
+void enter_cb(Fl_Widget *me, void * something){
+  myS->entry('=');
+}
+void sub_cb(Fl_Widget *me, void * something){
+  myS->entry('-');
+}
+void clear_cb(Fl_Widget *me, void * something){
+  myS->entry('c');
+}
+void multi_cb(Fl_Widget *me, void * something){
+  myS->entry('*');
+}
+void div_cb(Fl_Widget *me, void * something){
+  myS->entry('/');
+}
+void plmn_cb(Fl_Widget *me, void *something){
+  myS->entry('P');
+}
+void power_cb(Fl_Widget *me, void *something){
+  myS->entry('^');
+}
+void sqrt_cb(Fl_Widget *me, void *something){
+  myS->entry('s');
+}
+void drop_cb(Fl_Widget *me, void *something){
+  myS->entry('d');
+}
+
+//--------------------------------------------------------
+int main(int argc, char *argv[]){
+  Fl_Window *window = new Fl_Window(425,475);
+  window -> color(FL_BLACK);
+  myS = new Inter(25,25,375,50,"");
+  
+  Fl_Button *zero = new Fl_Button(125,325,75,50,"0");
+  zero->labelsize(30);
+  zero ->color(FL_WHITE);
+  Fl_Button *one = new Fl_Button(25,250,75,50,"1");
+  one->labelsize(30);
+  one ->color(FL_WHITE);
+  Fl_Button *two = new Fl_Button(125,250,75,50,"2");
+  two->labelsize(30);
+  two ->color(FL_WHITE);
+  Fl_Button *three = new Fl_Button(225,250,75,50,"3");
+  three->labelsize(30);
+  three ->color(FL_WHITE);
+  Fl_Button *four = new Fl_Button(25,175,75,50,"4");
+  four->labelsize(30);
+  four ->color(FL_WHITE);
+  Fl_Button *five = new Fl_Button(125,175,75,50,"5");
+  five->labelsize(30);
+  five ->color(FL_WHITE);
+  Fl_Button *six = new Fl_Button(225,175,75,50,"6");
+  six->labelsize(30);
+  six ->color(FL_WHITE);
+  Fl_Button *seven = new Fl_Button(25,100,75,50,"7");
+  seven->labelsize(30);
+  seven ->color(FL_WHITE);
+  Fl_Button *eight = new Fl_Button(125,100,75,50,"8");
+  eight->labelsize(30);
+  eight ->color(FL_WHITE);
+  Fl_Button *nine = new Fl_Button(225,100,75,50,"9");
+  nine->labelsize(30);
+  nine ->color(FL_WHITE);
+  
+  Fl_Button *add = new Fl_Button(325,100,75,50,"+");
+  add->labelsize(30);
+  Fl_Button *sub = new Fl_Button(325,175,75,50,"-");
+  sub->labelsize(30);
+  Fl_Button *multi = new Fl_Button(325,250,75,50,"*");
+  multi->labelsize(30);
+  Fl_Button *power = new Fl_Button(225,325,75,50,"^");
+  power->labelsize(25);
+  Fl_Button *sqrt = new Fl_Button(225,400,75,50,"SQRT");
+  sqrt->labelsize(20);
+  Fl_Button *div = new Fl_Button(325,325,75,50,"/");
+  div->labelsize(20);
+  Fl_Button *plmn = new Fl_Button(25,325,75,50,"+|-");
+  plmn->labelsize(25);
+  Fl_Button *drop = new Fl_Button(125,400,75,50,"DEL");
+  drop->labelsize(25);
+  //Fl_Button *decimal = new Fl_Button(225,325,75,50,".");
+  //decimal->labelsize(30);
+  Fl_Button *enter = new Fl_Button(325,400,75,50,"ENTER");
+  enter->labelsize(20);
+  enter->color(FL_GREEN);
+  Fl_Button *clear = new Fl_Button(25,400,75,50,"C");
+  clear->labelsize(25);
+  clear->color(FL_RED);
+  //done with widgets
+
+  zero -> callback(zero_cb,0);
+  one -> callback(one_cb,0);
+  two -> callback(two_cb,0);
+  three -> callback(three_cb,0);
+  four -> callback(four_cb,0);
+  five -> callback(five_cb,0);
+  six -> callback(six_cb,0);
+  seven -> callback(seven_cb,0);
+  eight -> callback(eight_cb,0);
+  nine -> callback(nine_cb,0);
+  
+  add -> callback(add_cb,0);
+  sub -> callback(sub_cb,0);
+  multi -> callback(multi_cb,0);
+  power -> callback(power_cb,0);
+  sqrt -> callback(sqrt_cb,0);
+  div -> callback(div_cb,0);
+  plmn -> callback(plmn_cb,0);
+  drop -> callback(drop_cb,0);
+  //decimal -> callback(decimal_cb,0);
+  enter -> callback(enter_cb,0);
+  clear -> callback(clear_cb,0);
+  
+  window -> end();
+  window -> show(argc, argv);
+  return Fl::run();
+}
+

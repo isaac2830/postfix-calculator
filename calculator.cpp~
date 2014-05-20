@@ -82,9 +82,7 @@ void sqrt_cb(Fl_Widget *me, void *something){
 void drop_cb(Fl_Widget *me, void *something){
   myS->entry('d');
 }
-/*void decimal_cb(Fl_Widget *me, void *something){
-  myS->entry('.');
-}*/
+
 //--------------------------------------------------------
 int main(int argc, char *argv[]){
   Fl_Window *window = new Fl_Window(425,475);
@@ -118,7 +116,7 @@ int main(int argc, char *argv[]){
   Fl_Button *multi = new Fl_Button(325,250,75,50,"*");
   multi->labelsize(30);
   Fl_Button *power = new Fl_Button(225,325,75,50,"^");
-  power->labelsize(25);
+  power->labelsize(26);
   Fl_Button *sqrt = new Fl_Button(225,400,75,50,"SQRT");
   sqrt->labelsize(20);
   Fl_Button *div = new Fl_Button(325,325,75,50,"/");
